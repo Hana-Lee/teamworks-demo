@@ -5,10 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TeamWorks</title>
 
+    <link rel="stylesheet" href="lib/webix/skins/compact.css">
     <script src="lib/interact-1.3.4.js"></script>
+    <script src="lib/webix/webix.js"></script>
+    <script src="src/app.js"></script>
+    <script src="data/data.js"></script>
 </head>
 <body>
-    <div id="container">
+    <div id="app-container" style="height:100%;width:100%;"></div>
+    <script>
+        teamworks.init('app-container', twdata);
+    </script>
+    <style>
+            #container {
+                background:#eee;
+                height : 800px;
+                width : 800px;
+                display: inline-block;
+            }
+            .snap-item {
+                width: 100px;
+                height : 100px;
+                color:#fff;
+                font-size:1.2em;
+                border-radius:4px;
+                padding:10px;
+                margin:10px;
+                box-sizing:border-box;
+            }
+            .snap-item:hover {
+                cursor:move;
+            }
+            /* #grid-snap1 {
+                width: 100px;
+                height : 100px;
+                background:#29e;
+                color:#fff;
+                font-size:1.2em;
+                border-radius:4px;
+                padding:10px;
+                margin:10px;
+                box-sizing:border-box;
+            }
+    
+            #grid-snap2 {
+                width: 100px;
+                height : 100px;
+                background:#66e;
+                color:#fff;
+                font-size:1.2em;
+                border-radius:4px;
+                padding:10px;
+                margin:10px;
+                box-sizing:border-box;
+            } */
+        </style>
+    <!-- <div id="container">
         <div class="snap-box" id="grid-snap1">Snap 1</div>
         <div class="snap-box" id="grid-snap2">Snap 2</div>
     </div>
@@ -76,6 +128,6 @@
                 ev.target.style.webkitTransform = ev.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
             });
         }
-    </script>
+    </script> -->
 </body>
 </html>
