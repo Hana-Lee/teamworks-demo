@@ -1,22 +1,33 @@
+<!doctype html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TeamWorks</title>
 
-    <link rel="stylesheet" href="lib/webix/skins/compact.css">
     <script src="lib/interact-1.3.4.js"></script>
-    <script src="lib/webix/webix.js"></script>
+    <script src="./lib/webix/webix.js"></script>
+    <script src="./lib/webix/skin.js"></script>
+    <script src="lib/webix/codemirror.js"></script>
+    <script src="lib/DragSelect-1.7.23/dist/DragSelect.js"></script>
     <script src="src/app.js"></script>
+    <script src="src/admin.js"></script>
+    <script src="src/sample1.js"></script>
+    <script src="src/sample2.js"></script>
     <script src="data/data.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="lib/codemirror-5.38.0/lib/codemirror.css"> -->
+    <link rel="stylesheet" type="text/css" href="./lib/webix/skins/compact.css">
 </head>
 <body>
-    <div id="app-container" style="height:100%;width:100%;"></div>
+    <div id="drag-area-div" hidden style="border : 1px dotted #000;position:absolute;"></div>
     <script>
-        teamworks.init('app-container', twdata);
+        teamworks.init(document.querySelector('body'), twdata);
     </script>
     <style>
+            #drag-area-div {
+                border : 1px dotted #000;
+                position:absolute;
+            }
             #container {
                 background:#eee;
                 height : 800px;
@@ -24,8 +35,8 @@
                 display: inline-block;
             }
             .snap-item {
-                width: 100px;
-                height : 100px;
+                width: 130px;
+                height : 130px;
                 color:#fff;
                 font-size:1.2em;
                 border-radius:4px;
@@ -36,98 +47,6 @@
             .snap-item:hover {
                 cursor:move;
             }
-            /* #grid-snap1 {
-                width: 100px;
-                height : 100px;
-                background:#29e;
-                color:#fff;
-                font-size:1.2em;
-                border-radius:4px;
-                padding:10px;
-                margin:10px;
-                box-sizing:border-box;
-            }
-    
-            #grid-snap2 {
-                width: 100px;
-                height : 100px;
-                background:#66e;
-                color:#fff;
-                font-size:1.2em;
-                border-radius:4px;
-                padding:10px;
-                margin:10px;
-                box-sizing:border-box;
-            } */
         </style>
-    <!-- <div id="container">
-        <div class="snap-box" id="grid-snap1">Snap 1</div>
-        <div class="snap-box" id="grid-snap2">Snap 2</div>
-    </div>
-    
-    <style>
-        #container {
-            background:#eee;
-            height : 800px;
-            width : 800px;
-            display: inline-block;
-        }
-        #grid-snap1 {
-            width: 100px;
-            height : 100px;
-            background:#29e;
-            color:#fff;
-            font-size:1.2em;
-            border-radius:4px;
-            padding:10px;
-            margin:10px;
-            box-sizing:border-box;
-        }
-
-        #grid-snap2 {
-            width: 100px;
-            height : 100px;
-            background:#66e;
-            color:#fff;
-            font-size:1.2em;
-            border-radius:4px;
-            padding:10px;
-            margin:10px;
-            box-sizing:border-box;
-        }
-    </style>
-    <script>
-        var elem1 = document.querySelector("#grid-snap1");
-        var elem2 = document.querySelector("#grid-snap2");
-        // var elems = document.querySelector(".snap-box");
-        setup(elem1);
-        setup(elem2);
-        // setup(elems);
-
-        function setup(elem) {
-            var x = 0, y = 0;
-            interact(elem).draggable({
-                onmove : window.dragMoveListener,
-                snap: {
-                    targets:[
-                        interact.createSnapGrid({x:100, y:100}),
-                        // {x:300, y:300, range:Infinity}
-                        
-                    ],
-                    // range: Infinity,
-                    relativePoints:[{x:150, y:150}]
-                },
-                // inertia: true,
-                restrict: {
-                    restriction : elem.parentNode,
-                    elementRect : {top: 0, left: 0, bottom: 1, right: 1},
-                    // endOnly: true
-                }
-            }).on('dragmove', function(ev) {
-                x += ev.dx, y += ev.dy;
-                ev.target.style.webkitTransform = ev.target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
-            });
-        }
-    </script> -->
 </body>
 </html>
