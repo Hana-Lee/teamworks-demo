@@ -2,7 +2,7 @@ var teamworks = (function () {
     var itemViewList = [];
     return {
         init: function (container, data) {
-            this.selectedView = sample2;
+            this.selectedView = sample1;
             this.data = data;
             this.setupView(container);
             if (this.selectedView.setupDropZone) {
