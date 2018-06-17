@@ -46,7 +46,9 @@ tw.sample2 = (function() {
 				view: 'list',
 				layout: 'x',
 				select: true,
-				template: '#title#<br />#tag#',
+				template: function(data) {
+					return data.value;
+				},
 				scroll: false,
 				drag: true,
 				type: {height: height, width: width},
@@ -60,7 +62,6 @@ tw.sample2 = (function() {
 						tw.main.showDataWindow(item);
 					},
 					onBeforeSelect: function() {
-						$$('slice-list-1').unselectAll();
 					},
 					onAfterSelect: function(rowId) {
 						var item = this.getItem(rowId);
@@ -86,8 +87,7 @@ tw.sample2 = (function() {
 						return false;
 					},
 					onBeforeDragIn: function(context) {
-						if (context.from.config.id === 'slice-list'
-							|| context.from.config.id === 'function-list') {
+						if (context.from.config.id === 'slice-list') {
 							return true;
 						}
 						if (context.from.config.id !== this.config.id) {

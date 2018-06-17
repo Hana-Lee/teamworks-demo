@@ -192,7 +192,7 @@ tw.data = {
 			name4: '건기식-자담터',
 		}],
 	}, {
-		id: 's2', value: '슬라이스2', tag: 'item_no', type: 'transaction', data: [{
+		id: 's2', value: '슬라이스2', tag: 'item_no', type: 'transaction', slice: [{
 			sales_date: '20170101', item_no: '0070765', sales_qty: 23, gr_amt: 19757,
 		}, {
 			sales_date: '20170101', item_no: '0070766', sales_qty: 20, gr_amt: 2100,
@@ -228,7 +228,7 @@ tw.data = {
 			sales_date: '20170101', item_no: '0071200', sales_qty: 1, gr_amt: 1909,
 		}],
 	}, {
-		id: 's3', value: '슬라이스3', tag: 'item_no', type: 'transaction', data: [{
+		id: 's3', value: '슬라이스3', tag: 'item_no', type: 'transaction', slice: [{
 			sales_date: '20170101', item_no: '0070765', cost_basis: 123, expense: 119757, quantity: 10,
 		}, {
 			sales_date: '20170101', item_no: '0070766', cost_basis: 120, expense: 12100, quantity: 20,
@@ -264,7 +264,7 @@ tw.data = {
 			sales_date: '20170101', item_no: '0071200', cost_basis: 11, expense: 11909, quantity: 750,
 		}],
 	}, {
-		id: 's4', value: '슬라이스4', tag: 'sale_date', type: 'transaction', data: [{
+		id: 's4', value: '슬라이스4', tag: 'sale_date', type: 'transaction', slice: [{
 			sales_date: '20170101', item_no: '0070765', sales_qty: 23, gr_amt: 19757,
 		}, {
 			sales_date: '20170101', item_no: '0070766', sales_qty: 20, gr_amt: 2100,
@@ -300,7 +300,7 @@ tw.data = {
 			sales_date: '20170101', item_no: '0071200', sales_qty: 1, gr_amt: 1909,
 		}],
 	}, {
-		id: 's5', value: '슬라이스5', tag: 'sale_date', type: 'transaction', data: [{
+		id: 's5', value: '슬라이스5', tag: 'sale_date', type: 'transaction', slice: [{
 			sales_date: '20180530', channel: '25319', sales_qty: 66, gr_amt: 1790000,
 		}, {
 			sales_date: '20180531', channel: '25068', sales_qty: 6910, gr_amt: 0,

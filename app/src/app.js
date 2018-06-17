@@ -131,16 +131,14 @@ tw.main = (function() {
 							body: {
 								id: 'slice-list',
 								view: 'tree',
-								// template: '#title# #tag#',
 								select: true,
 								drag: 'source',
-								// data: this.data.sliceTreeList,
 								data: [{
-									id: 'slice-list', value: '슬라이스', data: tw.data.sliceList,
+									id: 'slice-list', value: '슬라이스', open: true, data: tw.data.sliceList,
 								}, {
-									id: 'option-list', value: '결합옵션', data: tw.data.optionList,
+									id: 'option-list', value: '결합옵션', open: true, data: tw.data.optionList,
 								}, {
-									id: 'my-slice-list', value: 'My slice', data: tw.data.mySliceList,
+									id: 'my-slice-list', value: 'My slice', open: true, data: tw.data.mySliceList,
 								}],
 							},
 						}],
