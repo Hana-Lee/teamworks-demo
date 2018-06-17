@@ -3,7 +3,7 @@ if (!window.tw) {
 }
 tw.data = {
 	'sliceList': [{
-		id: 's1', value: '슬라이스1', tag: 'item_no', type: 'master', data: [{
+		id: 's1', value: '슬라이스1', tag: 'item_no', type: 'master', slice: [{
 			item_no: '0070765',
 			name: '자담_일렉트론미니',
 			pov_category1: 'H098',
