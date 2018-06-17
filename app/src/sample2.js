@@ -1,4 +1,4 @@
-var sample2 = (function() {
+tw.sample2 = (function() {
 	'use strict';
 
 	var height = 50;
@@ -8,10 +8,14 @@ var sample2 = (function() {
 			this.data = twdata;
 			return this._createView();
 		},
+		newWorkspaceItem: function() {
+			var newSliceGroup = this._getSliceGroupDef('2');
+			$$('workspace').addView(newSliceGroup, 1);
+		},
 		_createView: function() {
 			return {
 				id: 'workspace',
-				gravity: 2,
+				view: 'accordion',
 				type: 'space',
 				rows: [this._getSliceGroupDef('1'), {
 					template: 'Drag and drop on this zone',
@@ -20,12 +24,13 @@ var sample2 = (function() {
 		},
 		_getSliceGroupDef: function(id) {
 			return {
-				header: '조합 1',
+				view: 'accordionitem',
+				header: '조합 ' + id,
 				on: {
 					onItemClick: function() {
 						if ($$('slice-list-' + id).count() > 0) {
 							$$('slice-list-' + id).selectAll();
-							teamworks.selectedItem(this.data.items);
+							tw.main.selectedItem(this.data.sliceList);
 						} else {
 							webix.alert({title: '경고', text: '아이템이 없습니다.'});
 						}
@@ -36,7 +41,7 @@ var sample2 = (function() {
 			};
 		},
 		_getListDef: function(id) {
-			return webix.clone({
+			return {
 				id: id,
 				view: 'list',
 				layout: 'x',
@@ -52,19 +57,17 @@ var sample2 = (function() {
 						if (item.id === 'plus' || item.id === 'custom') {
 							return false;
 						}
-						teamworks.showDataWindow(item);
+						tw.main.showDataWindow(item);
 					},
 					onBeforeSelect: function() {
 						$$('slice-list-1').unselectAll();
-						$$('slice-list-2').unselectAll();
-						$$('slice-list-3').unselectAll();
 					},
 					onAfterSelect: function(rowId) {
 						var item = this.getItem(rowId);
 						if (item.id === 'plus' || item.id === 'custom') {
 							return false;
 						}
-						teamworks.selectedItem(item);
+						tw.main.selectedItem(item);
 					},
 					onBeforeDrop: function(context) {
 						if (context.from.config.id === this.config.id) {
@@ -92,7 +95,7 @@ var sample2 = (function() {
 						}
 					},
 				},
-			});
+			};
 		},
 	};
 })();

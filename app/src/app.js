@@ -1,9 +1,12 @@
 /* global sample1:true, sample2:true, admin:true */
-var teamworks = (function() {
+if (!window.tw) {
+	window.tw = {};
+}
+tw.main = (function() {
 	'use strict';
 	return {
 		init: function(container, data) {
-			this.selectedView = sample2;
+			this.selectedView = tw.sample2;
 			this.data = data;
 			this.setupView(container);
 			if (this.selectedView.setupDropZone) {
@@ -11,12 +14,7 @@ var teamworks = (function() {
 			}
 		},
 		_updateWorkspace: function() {
-			if (this.selectedView === sample1 || this.selectedView === admin) {
-				$$('function-list-container').hide();
-			} else {
-				$$('function-list-container').show();
-			}
-			if (this.selectedView === admin) {
+			if (this.selectedView === tw.admin) {
 				$$('dataview-container').show();
 			} else {
 				$$('dataview-container').hide();
@@ -79,7 +77,7 @@ var teamworks = (function() {
 						autowidth: true,
 						on: {
 							onItemClick: function() {
-								this.selectedView = sample1;
+								this.selectedView = tw.sample1;
 								this._updateWorkspace();
 							}.bind(this),
 						},
@@ -89,7 +87,7 @@ var teamworks = (function() {
 						autowidth: true,
 						on: {
 							onItemClick: function() {
-								this.selectedView = sample2;
+								this.selectedView = tw.sample2;
 								this._updateWorkspace();
 							}.bind(this),
 						},
@@ -99,7 +97,7 @@ var teamworks = (function() {
 						autowidth: true,
 						on: {
 							onItemClick: function() {
-								this.selectedView = admin;
+								this.selectedView = tw.admin;
 								this._updateWorkspace();
 							}.bind(this),
 						},
@@ -132,24 +130,18 @@ var teamworks = (function() {
 							header: '슬라이스목록',
 							body: {
 								id: 'slice-list',
-								view: 'list',
-								template: '#title# #tag#',
+								view: 'tree',
+								// template: '#title# #tag#',
 								select: true,
 								drag: 'source',
-								data: this.data.items,
-							},
-						}, {
-							view: 'resizer',
-						}, {
-							header: '펑션목록',
-							id: 'function-list-container',
-							body: {
-								id: 'function-list',
-								view: 'list',
-								template: '#title#',
-								select: true,
-								drag: 'source',
-								data: this.data['function-list'],
+								// data: this.data.sliceTreeList,
+								data: [{
+									id: 'slice-list', value: '슬라이스', data: tw.data.sliceList,
+								}, {
+									id: 'option-list', value: '결합옵션', data: tw.data.optionList,
+								}, {
+									id: 'my-slice-list', value: 'My slice', data: tw.data.mySliceList,
+								}],
 							},
 						}],
 					}, {
@@ -162,7 +154,7 @@ var teamworks = (function() {
 						}, {
 							header: 'Data Viewer',
 							id: 'dataview-container',
-							hidden: this.selectedView !== admin,
+							hidden: this.selectedView !== tw.admin,
 							body: {
 								id: 'datatable1',
 								view: 'datatable',

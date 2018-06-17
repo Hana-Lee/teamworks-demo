@@ -9,13 +9,15 @@
   "globals": {
     "$$": false,
     "webix": false,
-    "teamworks" : true
+    "teamworks" : true,
+    "tw": true
   },
   "rules": {
     // Additional, per-project rules...
     "linebreak-style": 0,
     "no-tabs": 0,
     "no-var": 0,
-    "eol-last" : 0
+    "eol-last" : 0,
+    "max-len" : 0
   }
 }
