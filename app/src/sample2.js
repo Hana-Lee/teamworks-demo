@@ -13,54 +13,26 @@ var sample2 = (function() {
 				id: 'workspace',
 				gravity: 2,
 				type: 'space',
-				rows: [
-					{
-						header: '조합 1',
-						on: {
-							onItemClick: function() {
-								if ($$('slice-list-1').count() > 0) {
-									$$('slice-list-1').selectAll();
-									teamworks.selectedItem(this.data.items);
-								} else {
-									webix.alert({title: '경고', text: '아이템이 없습니다.'});
-								}
-								return false;
-							}.bind(this),
-						},
-						body: this._getListDef('slice-list-1'),
-					},
-					{
-						header: '조합 2',
-						on: {
-							onItemClick: function() {
-								if ($$('slice-list-2').count() > 0) {
-									$$('slice-list-2').selectAll();
-									teamworks.selectedItem(this.data.items);
-								} else {
-									webix.alert({title: '경고', text: '아이템이 없습니다.'});
-								}
-								return false;
-							}.bind(this),
-						},
-						body: this._getListDef('slice-list-2'),
-					},
-					{
-						header: '조합 3',
-						on: {
-							onItemClick: function() {
-								if ($$('slice-list-3').count() > 0) {
-									$$('slice-list-3').selectAll();
-									teamworks.selectedItem(this.data.items);
-								} else {
-									webix.alert({title: '경고', text: '아이템이 없습니다.'});
-								}
-								return false;
-							}.bind(this),
-						},
-						body: this._getListDef('slice-list-3'),
-					},
-					{},
-				],
+				rows: [this._getSliceGroupDef('1'), {
+					template: 'Drag and drop on this zone',
+				}],
+			};
+		},
+		_getSliceGroupDef: function(id) {
+			return {
+				header: '조합 1',
+				on: {
+					onItemClick: function() {
+						if ($$('slice-list-' + id).count() > 0) {
+							$$('slice-list-' + id).selectAll();
+							teamworks.selectedItem(this.data.items);
+						} else {
+							webix.alert({title: '경고', text: '아이템이 없습니다.'});
+						}
+						return false;
+					}.bind(this),
+				},
+				body: this._getListDef('slice-list-' + id),
 			};
 		},
 		_getListDef: function(id) {

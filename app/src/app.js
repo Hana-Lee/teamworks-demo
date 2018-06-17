@@ -16,6 +16,11 @@ var teamworks = (function() {
 			} else {
 				$$('function-list-container').show();
 			}
+			if (this.selectedView === admin) {
+				$$('dataview-container').show();
+			} else {
+				$$('dataview-container').hide();
+			}
 			$$('datatable1').clearAll();
 			$$('workspace-container').removeView($$('workspace'));
 			$$('workspace-container').addView(this.selectedView.init(this.data), 0);
@@ -152,10 +157,12 @@ var teamworks = (function() {
 					}, {
 						gravity: 5,
 						id: 'workspace-container',
-						rows: [this.selectedView.init(), {
+						rows: [this.selectedView.init(this.data), {
 							view: 'resizer',
 						}, {
 							header: 'Data Viewer',
+							id: 'dataview-container',
+							hidden: this.selectedView !== admin,
 							body: {
 								id: 'datatable1',
 								view: 'datatable',
