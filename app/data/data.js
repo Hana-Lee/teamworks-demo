@@ -325,13 +325,25 @@ tw.data = {
 	}],
 	'mySliceList': [{
 		id: 'ms1',
-		value: '아이템번호 조합',
+		value: '아이템번호 결합1',
 		tag: 'item_no',
 		type: 'my',
 		combiList: [{sliceList: 's1'}, {optionList: 'c1'}, {sliceList: 's2'}],
 	}, {
 		id: 'ms2',
-		value: '판매일 조합',
+		value: '아이템번호 결합2',
+		tag: 'item_no',
+		type: 'my',
+		combiList: [{sliceList: 's2'}, {optionList: 'c1'}, {sliceList: 's1'}],
+	}, {
+		id: 'ms3',
+		value: '아이템번호 결합3',
+		tag: 'item_no',
+		type: 'my',
+		combiList: [{sliceList: 's2'}, {optionList: 'c1'}, {sliceList: 's3'}],
+	}, {
+		id: 'ms4',
+		value: '판매일 결합',
 		tag: 'sales_date',
 		type: 'my',
 		combiList: [{sliceList: 's4'}, {optionList: 'c1'}, {sliceList: 's5'}],

@@ -54,7 +54,6 @@ tw.main = (function() {
 					type: 'space',
 					rows: [{
 						view: 'datatable',
-						leftSplit: 1,
 						footer: true,
 						resizeColumn: true,
 						data: this._createData(data, tag),
@@ -82,7 +81,7 @@ tw.main = (function() {
 					}
 					var column = {
 						id: key,
-						header: key,
+						header: '<span class="tooltip" data-tooltip="' + key + '" title="' + key + '">' + key + '</span>',
 						adjust: 'data',
 						footer: {text: 'Total : ' + _.size(sliceList), colspan: 3},
 					};
@@ -166,7 +165,7 @@ tw.main = (function() {
 				}, {
 					cols: [{
 						rows: [{
-							header: '슬라이스목록',
+							header: '목록',
 							width: 230,
 							body: {
 								id: 'slice-list',

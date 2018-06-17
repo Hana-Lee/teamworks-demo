@@ -80,7 +80,7 @@ tw.sample2 = (function() {
 							},
 						},
 					}, {
-						view: 'button', label: '실행', type: 'iconButton', icon: 'play', autowidth: true,
+						view: 'button', label: '결합', type: 'iconButton', icon: 'play', autowidth: true,
 						on: {
 							onItemClick: function() {
 								var listView = $$('slice-list-' + id);
