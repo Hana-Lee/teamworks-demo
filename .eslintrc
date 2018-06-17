@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "google"
+  ],
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "$$": false,
+    "webix": false,
+    "teamworks" : true
+  },
+  "rules": {
+    // Additional, per-project rules...
+    "linebreak-style": 0,
+    "no-tabs": 0,
+    "no-var": 0,
+    "eol-last" : 0
+  }
+}
