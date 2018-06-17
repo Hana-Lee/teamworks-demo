@@ -10,43 +10,21 @@
     <script src="lib/webix/skin.js"></script>
     <script src="lib/webix/codemirror.js"></script>
     <script src="lib/DragSelect-1.7.23/dist/DragSelect.js"></script>
+    <script src="lib/lodash.min.js"></script>
     <script src="src/app.js"></script>
     <script src="src/admin.js"></script>
     <script src="src/sample1.js"></script>
     <script src="src/sample2.js"></script>
+    <script src="src/combination.js"></script>
     <script src="data/data.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="lib/codemirror-5.38.0/lib/codemirror.css"> -->
     <link rel="stylesheet" type="text/css" href="lib/webix/skins/compact.css">
+    <link rel="stylesheet" type="text/css" href="style/app.css">
 </head>
 <body>
     <div id="drag-area-div" hidden style="border : 1px dotted #000;position:absolute;"></div>
     <script>
 	    tw.main.init(document.querySelector('body'), tw.data);
     </script>
-    <style>
-            #drag-area-div {
-                border : 1px dotted #000;
-                position:absolute;
-            }
-            #container {
-                background:#eee;
-                height : 800px;
-                width : 800px;
-                display: inline-block;
-            }
-            .snap-item {
-                width: 130px;
-                height : 130px;
-                color:#fff;
-                font-size:1.2em;
-                border-radius:4px;
-                padding:10px;
-                margin:10px;
-                box-sizing:border-box;
-            }
-            .snap-item:hover {
-                cursor:move;
-            }
-        </style>
 </body>
 </html>

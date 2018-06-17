@@ -10,7 +10,8 @@
     "$$": false,
     "webix": false,
     "teamworks" : true,
-    "tw": true
+    "tw": true,
+    "_": false
   },
   "rules": {
     // Additional, per-project rules...

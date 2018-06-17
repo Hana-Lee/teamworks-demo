@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+body, input, span, a, div {
+	font-family: '맑은고딕', '나눔고딕', Helvetica, Arial, sans-serif;
+}
+
+#drag-area-div {
+	border: 1px dotted #000;
+	position: absolute;
+}
+
+#container {
+	background: #eee;
+	height: 800px;
+	width: 800px;
+	display: inline-block;
+}
+
+.snap-item {
+	width: 130px;
+	height: 130px;
+	color: #fff;
+	font-size: 1.2em;
+	border-radius: 4px;
+	padding: 10px;
+	margin: 10px;
+	box-sizing: border-box;
+}
+
+.snap-item:hover {
+	cursor: move;
+}
+
+.tag_column > div:nth-child(even) {
+	background: #ffffdd;
+}
+
+.tag_column > div:nth-child(odd) {
+	background: #ffffee;
+}
+
+.slice_list_1, .slice_list_s1 {
+	background: #d5eed6;
+}
+
+.slice_list_2, .slice_list_s2 {
+	background: #eee7e9;
+}
+
+.slice_list_3, .slice_list_s3 {
+	background: #d6e1ee;
+}
+
+.slice_list_4, .slice_list_s4 {
+	background: #d2cdee;
+}

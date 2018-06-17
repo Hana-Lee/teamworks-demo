@@ -264,7 +264,7 @@ tw.data = {
 			sales_date: '20170101', item_no: '0071200', cost_basis: 11, expense: 11909, quantity: 750,
 		}],
 	}, {
-		id: 's4', value: '슬라이스4', tag: 'sale_date', type: 'transaction', slice: [{
+		id: 's4', value: '슬라이스4', tag: 'sales_date', type: 'transaction', slice: [{
 			sales_date: '20170101', item_no: '0070765', sales_qty: 23, gr_amt: 19757,
 		}, {
 			sales_date: '20170101', item_no: '0070766', sales_qty: 20, gr_amt: 2100,
@@ -300,8 +300,8 @@ tw.data = {
 			sales_date: '20170101', item_no: '0071200', sales_qty: 1, gr_amt: 1909,
 		}],
 	}, {
-		id: 's5', value: '슬라이스5', tag: 'sale_date', type: 'transaction', slice: [{
-			sales_date: '20180530', channel: '25319', sales_qty: 66, gr_amt: 1790000,
+		id: 's5', value: '슬라이스5', tag: 'sales_date', type: 'transaction', slice: [{
+			sales_date: '20170101', channel: '25319', sales_qty: 66, gr_amt: 1790000,
 		}, {
 			sales_date: '20180531', channel: '25068', sales_qty: 6910, gr_amt: 0,
 		}, {
@@ -315,18 +315,26 @@ tw.data = {
 		}],
 	}],
 	'optionList': [{
-		id: 'c1', value: '단순결합',
+		id: 'c1', value: '단순결합', type: 'option',
 	}, {
-		id: 'c2', value: '조건결합',
+		id: 'c2', value: '조건결합', type: 'option',
 	}, {
-		id: 'c3', value: '고급결합',
+		id: 'c3', value: '고급결합', type: 'option',
 	}, {
-		id: 'c4', value: '기타',
+		id: 'c4', value: '기타', type: 'option',
 	}],
 	'mySliceList': [{
-		id: 'ms1', value: '아이템번호 조합', combiList: ['s1', 'c1', 's2'],
+		id: 'ms1',
+		value: '아이템번호 조합',
+		tag: 'item_no',
+		type: 'my',
+		combiList: [{sliceList: 's1'}, {optionList: 'c1'}, {sliceList: 's2'}],
 	}, {
-		id: 'ms2', value: '판매일 조합', combiList: ['s4', 'c1', 's5'],
+		id: 'ms2',
+		value: '판매일 조합',
+		tag: 'sales_date',
+		type: 'my',
+		combiList: [{sliceList: 's4'}, {optionList: 'c1'}, {sliceList: 's5'}],
 	}],
 };
 
