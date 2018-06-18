@@ -59,8 +59,11 @@ tw.sample2 = (function() {
 		},
 		_getSliceGroupDef: function(id) {
 			return {
+				height: 93,
+				css: 'slice_list_container',
 				rows: [{
 					view: 'toolbar',
+					css: 'slice_list_toolbar',
 					cols: [{
 						id: 'toolbar-label-' + id, view: 'label', label: '조합 ' + id, width: 150,
 					}, {
@@ -128,7 +131,8 @@ tw.sample2 = (function() {
 				id: 'slice-list-' + id,
 				view: 'list',
 				layout: 'x',
-				select: false,
+				select: true,
+				css: 'slice_list_box',
 				template: function(data) {
 					if (data.tag) {
 						return data.value + '<br />#' + data.tag;

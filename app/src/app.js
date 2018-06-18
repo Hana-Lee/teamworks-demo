@@ -113,6 +113,7 @@ tw.main = (function() {
 						view: 'button',
 						value: 'Sample1',
 						autowidth: true,
+						hidden: true,
 						on: {
 							onItemClick: function() {
 								this.selectedView = tw.sample1;

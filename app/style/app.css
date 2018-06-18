@@ -39,18 +39,41 @@ body, input, span, a, div {
 	background: #ffffee;
 }
 
-.slice_list_1, .slice_list_s1 {
-	background: #d5eed6;
+.webix_list_item.webix_selected {
+	color: #666;
+	border: 2px solid orangered !important;
+	background: #fff;
 }
 
-.slice_list_2, .slice_list_s2 {
+.webix_list_item {
+	background: #fff;
+	margin: 3px;
+}
+
+.slice_list_1, .slice_list_s1, .slice_list_s1.webix_selected {
+	background: #d5eed6 !important;
+}
+
+.slice_list_2, .slice_list_s2, .slice_list_s2.webix_selected {
 	background: #eee7e9;
 }
 
-.slice_list_3, .slice_list_s3 {
+.slice_list_3, .slice_list_s3, .slice_list_s3.webix_selected {
 	background: #d6e1ee;
 }
 
-.slice_list_4, .slice_list_s4 {
+.slice_list_4, .slice_list_s4, .slice_list_s4.webix_selected {
 	background: #d2cdee;
+}
+
+.slice_list_box {
+	background: #797979;
+	height: 57px !important;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+.slice_list_toolbar {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
 }
