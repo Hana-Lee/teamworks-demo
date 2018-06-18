@@ -12,8 +12,12 @@ tw.sample2 = (function() {
 		setupDropZone: function() {
 			webix.DragControl.addDrop($$('drop-zone').getNode(), {
 				$drop: function() {
-					var dragItemId = webix.DragControl.getContext().start;
-					var dragItem = webix.DragControl.getContext().from.getItem(dragItemId);
+					var context = webix.DragControl.getContext();
+					if (context.from.config.id !== 'slice-list') {
+						return false;
+					}
+					var dragItemId = context.start;
+					var dragItem = context.from.getItem(dragItemId);
 					var newSliceGroup = this.newWorkspaceItem();
 					var newListId = newSliceGroup.rows[1].id;
 					var newList = $$(newListId);
@@ -38,6 +42,7 @@ tw.sample2 = (function() {
 						newList.addCss(dragItem.id, 'slice_list_' + dragItem.id, true);
 						newList.refresh();
 					}
+					this._createContextMenuForSliceListItem(newListId);
 				}.bind(this),
 			});
 		},
@@ -46,6 +51,27 @@ tw.sample2 = (function() {
 			$$('workspace').addView(newSliceGroup, this.idCount - 1);
 			this.idCount++;
 			return newSliceGroup;
+		},
+		_createContextMenuForSliceListItem: function(listViewId) {
+			var listView = $$(listViewId);
+			if (listView) {
+				var contextMenu = webix.ui(this._getContextMenuDef());
+				contextMenu.attachTo(listView);
+			}
+		},
+		_getContextMenuDef: function() {
+			return {
+				view: 'contextmenu',
+				data: ['삭제'],
+				on: {
+					onItemClick: function() {
+						var context = this.getContext();
+						var listView = context.obj;
+						var listItemId = context.id;
+						listView.remove(listItemId);
+					},
+				},
+			};
 		},
 		_createView: function() {
 			return {
@@ -144,6 +170,7 @@ tw.sample2 = (function() {
 				drag: true,
 				type: {height: height, width: width},
 				data: [],
+				onContext: {},
 				on: {
 					onAfterLoad: function() {
 					},
