@@ -37,6 +37,19 @@ tw.main = (function() {
 					view: 'toolbar', cols: [
 						{view: 'label', label: '미리보기 - ' + title + ' (#' + tag + ')'},
 						{
+							view: 'button', label: '최대화', autowidth: true,
+							click: function() {
+								dataWindow.config.fullscreen = !dataWindow.config.fullscreen;
+								dataWindow.resize();
+								if (dataWindow.config.fullscreen) {
+									this.config.label = '최소화';
+								} else {
+									this.config.label = '최대화';
+								}
+								this.refresh();
+							},
+						},
+						{
 							view: 'button', label: '', type: 'icon', icon: 'close', width: 30, hotkey: 'esc',
 							click: function() {
 								dataWindow.close();
