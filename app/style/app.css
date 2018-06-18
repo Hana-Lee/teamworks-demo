@@ -43,11 +43,13 @@ body, input, span, a, div {
 	color: #666;
 	border: 2px solid orangered !important;
 	background: #fff;
+	border-radius: 4px;
 }
 
 .webix_list_item {
 	background: #fff;
 	margin: 3px;
+	border-radius: 4px;
 }
 
 .slice_list_1, .slice_list_s1, .slice_list_s1.webix_selected {
